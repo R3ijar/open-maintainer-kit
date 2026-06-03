@@ -14,3 +14,4 @@ Initial public MVP.
 - Conservative candidate engine with security, CI, PR review, issue triage, release-readiness, and wait-for-signal rules.
 - Triage queue, release readiness, maintainer plan, prompt, and privacy scan reports.
 - Sample CSVs, docs, CI, and Apache-2.0 license.
+- Dogfood snapshot for Open Growth Loop public repo metadata.

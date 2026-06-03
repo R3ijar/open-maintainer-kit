@@ -14,6 +14,8 @@ local repo exports -> triage queue -> one maintainer plan -> focused prompt
 
 It is designed to complement [Open Growth Loop](https://github.com/R3ijar/open-growth-loop): Open Growth Loop helps decide which docs/content growth action to take next; Open Maintainer Kit helps decide which repository health task to handle next.
 
+The first dogfood snapshot is included at `examples/open-growth-loop-current`.
+
 ## Why Maintainers Use It
 
 | Maintainer problem | What Open Maintainer Kit does |
