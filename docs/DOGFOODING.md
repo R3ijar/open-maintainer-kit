@@ -12,13 +12,17 @@ https://github.com/R3ijar/open-growth-loop
 
 ## Local Export Plan
 
-For v0.1, use manual or exported CSVs:
+For v0.1, use manual CSVs or the read-only GitHub import:
 
 - issues
 - pull requests
 - CI runs
 - planned releases
 - public or sanitized security notes
+
+```bash
+python -m open_maintainer_kit --workspace examples/open-growth-loop-current import-github R3ijar/open-growth-loop
+```
 
 ## Success Criteria
 
@@ -28,7 +32,7 @@ For v0.1, use manual or exported CSVs:
 - `omk prompt` produces a task that can be used by Codex without exposing private data.
 - Any confusing rule becomes a small issue or patch in Open Maintainer Kit.
 
-## 2026-06-02 Snapshot
+## 2026-06-03 Snapshot
 
 The first dogfood snapshot lives at `examples/open-growth-loop-current`.
 
@@ -36,6 +40,7 @@ Public Open Growth Loop state at capture time:
 
 - open issues: 0
 - open pull requests: 0
+- imported CI runs: 21
 - latest main CI run: success
 - GitHub releases: 0
 

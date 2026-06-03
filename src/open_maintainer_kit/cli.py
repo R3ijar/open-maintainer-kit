@@ -16,6 +16,7 @@ from .engine import (
     render_release_checks_markdown,
     write_plan_reports,
 )
+from .github_import import import_github_repo
 from .io_utils import read_json, write_json_report, write_text_report
 from .privacy import render_privacy_scan_markdown, scan_privacy
 from .prompts import render_codex_prompt
@@ -36,6 +37,11 @@ def main() -> None:
 
     validate = subparsers.add_parser("validate", help="Validate local CSV inputs and privacy-safe headers.")
     add_workspace_argument(validate)
+
+    import_github = subparsers.add_parser("import-github", help="Import public GitHub repo signals into local CSVs using gh.")
+    add_workspace_argument(import_github)
+    import_github.add_argument("repo", help="GitHub repository in owner/name form.")
+    import_github.add_argument("--limit", type=int, default=100, help="Maximum records to import per GitHub signal.")
 
     triage = subparsers.add_parser("triage", help="Write ranked maintainer triage candidates.")
     add_workspace_argument(triage)
@@ -62,6 +68,8 @@ def main() -> None:
         run_init(args, workspace)
     elif args.command == "validate":
         run_validate(workspace)
+    elif args.command == "import-github":
+        run_import_github(args, workspace)
     elif args.command == "triage":
         run_triage(workspace)
     elif args.command == "release-check":
@@ -98,6 +106,11 @@ def run_validate(workspace: Path) -> None:
     print(json.dumps(asdict(result), indent=2))
     if not result.ok:
         raise SystemExit(1)
+
+
+def run_import_github(args: argparse.Namespace, workspace: Path) -> None:
+    result = import_github_repo(args.repo, workspace, limit=args.limit)
+    print(json.dumps(asdict(result), indent=2))
 
 
 def run_triage(workspace: Path) -> None:

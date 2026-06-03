@@ -2,6 +2,12 @@
 
 All notable changes to Open Maintainer Kit are documented here.
 
+## Unreleased
+
+### Added
+
+- Read-only `omk import-github` command for importing public GitHub issue, PR, CI run, and release signals into local CSVs through the GitHub CLI.
+
 ## 0.1.0 - 2026-06-02
 
 Initial public MVP.

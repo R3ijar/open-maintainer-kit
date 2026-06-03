@@ -9,7 +9,7 @@ Local-first CLI for open-source maintainers who want one conservative repo-maint
 Open Maintainer Kit turns local issue, pull request, CI, release, and security CSVs into a ranked triage queue, one daily maintainer plan, release-readiness checks, and a Codex-ready prompt.
 
 ```text
-local repo exports -> triage queue -> one maintainer plan -> focused prompt
+local repo exports or gh import -> triage queue -> one maintainer plan -> focused prompt
 ```
 
 It is designed to complement [Open Growth Loop](https://github.com/R3ijar/open-growth-loop): Open Growth Loop helps decide which docs/content growth action to take next; Open Maintainer Kit helps decide which repository health task to handle next.
@@ -57,6 +57,7 @@ Example plan:
 
 - `omk init` creates local `data/` files with the expected headers.
 - `omk validate` checks CSV inputs and rejects private-looking columns.
+- `omk import-github owner/repo` imports public GitHub repo signals into local CSVs using `gh`.
 - `omk triage` writes ranked maintainer candidates.
 - `omk release-check` writes release-readiness checks.
 - `omk plan` chooses one conservative maintainer action.
@@ -81,7 +82,7 @@ It writes reviewable Markdown/JSON files under `outbox/`:
 - `outbox/prompts/latest-prompt.md`
 - `outbox/privacy-scan.md`
 
-It does not call the GitHub API, require credentials, mutate issues, post comments, publish releases, or upload repository data.
+The core workflow uses local CSVs and does not require credentials. The optional `import-github` command shells out to the GitHub CLI (`gh`) to read public repo metadata into local CSVs. It does not mutate issues, post comments, publish releases, or upload repository data.
 
 ## Decision Rules
 
@@ -114,6 +115,12 @@ Validate inputs:
 
 ```bash
 omk validate --workspace .
+```
+
+Optionally import public GitHub signals into the same local CSVs:
+
+```bash
+omk import-github R3ijar/open-growth-loop --workspace examples/open-growth-loop-current
 ```
 
 Write the triage queue:
@@ -154,7 +161,7 @@ python -m unittest discover -s tests
 
 ## Project Status
 
-This is an early public MVP. It is intended for small CSV-driven maintainer workflows and dogfooding on Open Growth Loop before expanding into optional issue export or GitHub integration.
+This is an early public MVP. It is intended for small CSV-driven maintainer workflows and dogfooding on Open Growth Loop. GitHub import is intentionally read-only and limited to public maintainer signals.
 
 ## License
 

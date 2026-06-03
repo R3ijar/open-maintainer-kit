@@ -2,6 +2,8 @@
 
 Open Maintainer Kit uses plain CSV files so maintainers can inspect and version their workflow.
 
+The optional `omk import-github owner/repo` command writes these same CSVs from read-only `gh` output. It intentionally omits raw issue bodies, user identifiers, email addresses, tokens, private vulnerability details, and other non-public data.
+
 ## Issues
 
 Default path: `data/issues.csv`

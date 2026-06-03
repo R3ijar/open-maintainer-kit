@@ -2,6 +2,12 @@
 
 This walkthrough uses the sample CSVs in `data/`.
 
+If you want to start from a public GitHub repository instead, authenticate the GitHub CLI and run:
+
+```bash
+python -m open_maintainer_kit --workspace . import-github owner/repo
+```
+
 ## 1. Validate
 
 ```bash
@@ -61,6 +67,6 @@ The sample `0.1.1` release is not ready because release assets are missing.
 Open Maintainer Kit avoids:
 
 - sending repository data to a hosted service
-- needing GitHub credentials for the core workflow
+- needing GitHub credentials for the core CSV workflow
 - letting routine backlog work hide security or CI blockers
 - asking a coding assistant to solve vague maintenance goals
