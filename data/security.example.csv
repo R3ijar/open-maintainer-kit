@@ -1,0 +1,3 @@
+id,severity,status,package,summary,created_at
+SEC-1,medium,open,example-lib,Review dependency update advisory,2026-05-28
+SEC-2,high,resolved,example-dev-tool,Resolved test dependency advisory,2026-05-20

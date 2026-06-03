@@ -1,0 +1,4 @@
+id,title,state,is_draft,checks_status,review_status,updated_at,author_association
+21,Improve CSV validation messages,open,false,success,none,2026-05-31,contributor
+22,Prototype hosted sync,open,true,pending,none,2026-05-29,contributor
+23,Fix release note typo,closed,false,success,approved,2026-05-20,member
